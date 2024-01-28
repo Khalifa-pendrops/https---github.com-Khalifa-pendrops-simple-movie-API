@@ -20,5 +20,35 @@ class MovieHub{
         this.movies.push(movie);
     }
 
-    
+    rentMovie(title) {
+        const movieIndex = this.movies.findIndex((movie) => movie.title === title && movie.available);
+        if (movieIndex !== -1) {
+            const rentedMovie = this.movies.splice(movieIndex, 1)[0];
+            rentedMovie.available = false;
+            this.rentedMovies.push(rentedMovie);
+            return rentedMovie;
+        } else {
+            return 'movie not found or already rented';
+        }
+    }
+
+    returnMovie(title) {
+        const rentedMovieIndex = this.rentedMovies.findIndex((movie) => movie.title === title);
+        if (rentedMovieIndex !== -1) {
+            const returnedMovie = this.rentedMovies.splice(
+              rentedMovieIndex,
+              1
+            )[0];
+            returnedMovie.available = true;
+            this.movies.push(returnedMovie);
+            return returnedMovie;
+        } else {
+            return "movie not found or nor rented";
+        }
+            
+    }
+
+    listAvailableMovies() {
+        return this.movies.filter((movie) => movie.available);
+    }
 }
