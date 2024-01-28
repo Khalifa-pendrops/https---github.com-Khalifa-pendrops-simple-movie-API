@@ -8,7 +8,7 @@ class MyMovie {
     }
 }
 
-class MovieHub{
+class MovieRentalSystem{
     constructor() {
         this.movies = [];
         this.rentedMovies = [];
@@ -52,3 +52,55 @@ class MovieHub{
         return this.movies.filter((movie) => movie.available);
     }
 }
+//initialization of movieHub
+const rentalHub = new MovieHub();
+rentalHub.addMovie("Game of Thrones", "Fantasy", 2019, 32145);
+rentalHub.addMovie("Olympus has fallen", "Action", 2017, 45321);
+rentalHub.addMovie("Gangs of Lagos", "Action", 2022, 43251);
+rentalHub.addMovie("Blade", "Action", 2011, 12345);
+rentalHub.addMovie("House of the Dragon", "Action", 2022, 54321);
+
+console.log('These are the available movies:');
+console.log(rentalHub.listAvailableMovies());
+
+console.log('\nRenting "Gangs of Lagos"...');
+rentalHub.rentMovie("Gangs of Lagos");
+
+console.log('\nThe available movies after renting are:');
+console.log(rentalHub.listAvailableMovies());
+
+console.log('\nThe rented movie is:');
+console.log(rentalHub.listAvailableMovies());
+
+console.log('\nReturning "Gangs of Lagos"...');
+rentalHub.returnMovie("Gangs of Lagos");
+
+console.log('\nThe available movies after returning:');
+console.log(rentalHub.listAvailableMovies());
+
+
+
+// const rentalSystem = new MovieRentalSystem();
+// rentalSystem.addMovie("Game of Thrones", "Fantasy", 2019, 32145);
+// rentalSystem.addMovie("Olympus has fallen", "Action", 2017, 45321);
+// rentalSystem.addMovie("Gangs of Lagos", "Action", 2022, 23451);
+// rentalSystem.addMovie("Blade", "Action", 2011, 12345);
+// rentalSystem.addMovie("House of the Dragon", "Action", 2022, 54321);
+
+// console.log("Available movies:");
+// console.log(rentalSystem.listAvailableMovies());
+
+// console.log("\nRenting 'Blade'...");
+// rentalSystem.rentMovie("Blade");
+
+// console.log("\nAvailable movies after renting:");
+// console.log(rentalSystem.listAvailableMovies());
+
+// console.log("\nRented movies:");
+// console.log(rentalSystem.listRentedMovies());
+
+// console.log("\nReturning 'Blade'...");
+// rentalSystem.returnMovie("Blade");
+
+// console.log("\nAvailable movies after returning:");
+// console.log(rentalSystem.listAvailableMovies());
